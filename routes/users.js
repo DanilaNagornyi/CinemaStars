@@ -7,6 +7,8 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 // подключаем модель юзера
 const User = require('../models/user');
+// подключаем модель event
+const Event = require('../models/event');
 // сколько рандов мы будем хешировать кодировать;
 const saltRounds = 10;
 // деструктурируем объект консоль
@@ -25,7 +27,7 @@ router.post('/', async (req, res) => {
   log(req.body);
   // деструктурируем переменную
   const {
-    firstName, lastName, age, email, tel, role, instagram, city, genre, projectType, sex, photo, video, description, minsulary, password,
+    firstName, lastName, age, email, tel, role, instagram, location, genre, projectType, sex, photo, video, description, minsulary, password,
   } = req.body;
   // ищем пользователя в базе
   const findUser = await User.findOne({ email });
@@ -38,7 +40,7 @@ router.post('/', async (req, res) => {
   const hash = bcrypt.hashSync(password, salt);
   // создаем нового юзера по модели
   const user = await User.create({
-    firstName, lastName, age, email, tel, role, instagram, city, genre, projectType, sex, photo, video, description, minsulary, password: hash,
+    firstName, lastName, age, email, tel, role, instagram, location, genre, projectType, sex, photo, video, description, minsulary, password: hash,
   });
   // сохраняем его в базу
   // await user.save();
@@ -48,7 +50,7 @@ router.post('/', async (req, res) => {
   req.session.username = user.firstName;
   req.session.userId = user._id;
   req.session.role = user.lastName.role;
-  res.redirect('/');
+  res.redirect('/users/profile');
 });
 // login
 router.get('/login', (req, res) => {
@@ -78,8 +80,20 @@ router.post('/login', async (req, res) => {
 });
 
 // Routes profile
-router.get('/profile', (req, res) => {
-  res.render('profile', { title: 'Личный кабинет' });
+router.get('/profile', async (req, res) => {
+  let user;
+  let createEvents;
+  let stafEvents;
+  console.log('_______----------->', req.session.userId);
+  try {
+    user = await User.findById(req.session.userId);
+    log(user);
+    createEvents = await Event.find({ creator: user._id });
+    stafEvents = await Event.find({ staff: user._id });
+  } catch (error) {
+    return res.render('error', { message: 'Пользователь не найден!' });
+  }
+  return res.render('profile', { user, createEvents, stafEvents });
 });
 
 // logout
