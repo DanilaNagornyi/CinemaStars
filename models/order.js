@@ -8,6 +8,7 @@ const Event = mongoose.model('event', {
   description: { type: String },
   photo: { type: String, default: 'https://www.pinclipart.com/picdir/big/416-4160500_you-wont-have-any-technical-issues-to-deal.png' },
   creator: { type: mongoose.ObjectId, ref: 'user' },
+  createdAt: { type: Date, default: Date.now() },
   projectType: [String],
   genre: [String],
   staff: [{ type: mongoose.ObjectId, ref: 'user' }],
