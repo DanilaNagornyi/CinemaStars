@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Sign Up Form </title>
+
+  <!-- Font Icon -->
+  <link rel="stylesheet" href="/registrationForm/fonts/material-icon/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="/registrationForm/vendor/nouislider/nouislider.min.css">
+
+  <!-- Main css -->
+  <link rel="stylesheet" href="/registrationForm/css/style.css">
+</head>
+
+<body>
+
+  <div class="main">
+
+    <div class="container">
+      <div class="signup-content">
+        <div class="signup-img">
+          <img src="/registrationForm/images/form-img.jpg" alt="">
+          <div class="signup-img-content">
+            <h2>Register now </h2>
+            <p>while seats are available !</p>
+          </div>
+        </div>
+        <div class="signup-form">
+          <form method="POST" action="/users/" class="register-form" id="register-form">
+            <div class="form-row">
+              <div class="form-group">
+                <div class="form-input">
+                  <label for="firstName" class="required">Имя</label>
+                  <input type="text" name="firstName" id="first_name" />
+                </div>
+                <div class="form-input">
+                  <label for="lastName" class="required">Фамилия</label>
+                  <input type="text" name="lastName" id="last_name" />
+                </div>
+                <div class="form-input">
+                  <label for="age" class="required">Возраст</label>
+                  <input type="text" name="age" id="company" />
+                </div>
+                <div class="form-input">
+                  <label for="email" class="required">Email</label>
+                  <input type="text" name="email" id="email" />
+                </div>
+                <div class="form-input">
+                  <label for="email" class="required">Пароль</label>
+                  <input type="password" name="password" id="password" />
+                </div>
+                <div class="form-input">
+                  <label for="tel" class="required">Телефон</label>
+                  <input type="text" name="tel" id="tel" required />
+                </div>
+                <div class="form-input">
+                  <label for="instagram">Инстаграм</label>
+                  <input type="url" name="instagram" id="instagram" />
+                </div>
+                <div class="form-input">
+                  <label for="city">Город</label>
+                  <input type="text" name="city" id="city" />
+                </div>
+              </div>
+              <div class="form-group">
+                <div class="form-select">
+                  <div class="label-flex">
+                    <label for="role">Укажите свою специализацию</label>
+                  </div>
+                  <div class="select-list">
+                    <select name="role" id="meal_preference">
+                      <option value="Режиссер" selected>Режиссёр</option>
+                      <option value="Продюсер">Продюсер</option>
+                      <option value="Актер">Оператор</option>
+                      <option value="Сценарист">Сценарист</option>
+                      <option value="Звукорежиссер">Звукорежиссер</option>
+                      <option value="Композитор">Композитор</option>
+                    </select>
+                  </div>
+                </div>
+
+
+                <div class="form-select">
+                  <div class="label-flex">
+                    <label for="role">Укажите свою специализацию</label>
+                  </div>
+                  <div class="select-list">
+                    <select name="role" id="meal_preference">
+                      <option value="Режиссер" selected>Режиссёр</option>
+                      <option value="Продюсер">Продюсер</option>
+                      <option value="Актер">Оператор</option>
+                      <option value="Сценарист">Сценарист</option>
+                      <option value="Звукорежиссер">Звукорежиссер</option>
+                      <option value="Композитор">Композитор</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-select">
+                  <div class="label-flex">
+                    <label for="genre">Укажите желаемые жанры</label>
+                  </div>
+                  <div class="select-list">
+                    <select name="genre" id="meal_preference" size="4" multiple>
+                      <option value="Комедия" selected>Комедия</option>
+                      <option value="Драма">Драма</option>
+                      <option value="Трагедия">Трагедия</option>
+                      <option value="Ужасы">Ужасы</option>
+
+                    </select>
+                  </div>
+                </div>
+                <div class="form-select">
+                  <div class="label-flex">
+                    <label for="projectType">Выберете тип проекта</label>
+                  </div>
+                  <div class="select-list">
+                    <select name="projectType" id="meal_preference" size="2" multiple>
+                      <option value="Короткометражка" selected>Короткометражка</option>
+                      <option value="Полнометражка">Полнометражка</option>
+                    </select>
+                  </div>
+                </div>
+
+                <div class="form-radio">
+                  <div class="label-flex">
+                    <label for="payment">Выберите пол</label>
+                    {{!-- <a href="#" class="form-link">Payment Detail</a> --}}
+                  </div>
+                  <div class="form-radio-group">
+                    <div class="form-radio-item">
+                      <input type="radio" name="men" id="men" checked>
+                      <label for="cash">Мужской</label>
+                      <span class="check"></span>
+                    </div>
+                    <div class="form-radio-item">
+                      <input type="radio" name="women" id="women">
+                      <label for="cheque">Женский</label>
+                      <span class="check"></span>
+                    </div>
+                  </div>
+                </div>
+                <div class="form-input">
+                  <label for="photo">Фото</label>
+                  <input type="url" name="photo" id="photo" required />
+                </div>
+                <div class="form-input">
+                  <label for="video">Видео</label>
+                  <input type="url" name="video" id="video" />
+                </div>
+                <div class="form-input">
+                  <label for="description">О себе</label>
+                  <textarea class="form-control" name="description" id="description" cols="45" rows="5"></textarea>
+                </div>
+                <div class="form-input">
+                  <label for="minsulary">Минимальная оплата</label>
+                  <input type="number" name="minsulary" id="minsulary" />
+                </div>
+              </div>
+            </div>
+            <div class="donate-us">
+              <label>Выберете желаемую оплату за проект</label>
+              <div class="price_slider ui-slider ui-slider-horizontal">
+                <div id="slider-margin"></div>
+                <span class="donate-value" id="value-lower"></span>
+              </div>
+            </div>
+            <div class="form-submit">
+              <input type="submit" value="Submit" class="submit" id="submit" name="submit" />
+              <input type="submit" value="Reset" class="submit" id="reset" name="reset" />
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- JS -->
+  <script src="/registrationForm/vendor/jquery/jquery.min.js"></script>
+  <script src="/registrationForm/vendor/nouislider/nouislider.min.js"></script>
+  <script src="/registrationForm/vendor/wnumb/wNumb.js"></script>
+  <script src="/registrationForm/vendor/jquery-validation/dist/jquery.validate.min.js"></script>
+  <script src="/registrationForm/vendor/jquery-validation/dist/additional-methods.min.js"></script>
+  <script src="/registrationForm/js/main.js"></script>
+</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+
+</html>
