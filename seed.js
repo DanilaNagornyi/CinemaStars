@@ -83,6 +83,7 @@ async function main() {
   users.push(director);
   await User.insertMany(users);
   
+  
   const elbrusLife = new Event({
     title: 'Elbrus',
     description: 'Документальный фильм о жизни в первом буткемпе в России',
