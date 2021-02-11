@@ -66,15 +66,18 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Home</a></li>
-          <li><a class="nav-link scrollto" href="#about">About</a></li>
-          <li><a class="nav-link scrollto" href="#services">Services</a></li>
-          <li><a class="nav-link scrollto" href="#portfolio">Portfolio</a></li>
-          <li><a class="nav-link scrollto" href="#team">Team</a></li>
-          <li class="dropdown"><a href="#"><span>Drop Down</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto active" href="#hero">Домой</a></li>
+          <li><a class="nav-link scrollto" href="#about">О Нас</a></li>
+          <li><a class="nav-link scrollto" href="#services">Мы предлагаем</a></li>
+          <li><a class="nav-link scrollto" href="#team">Наша Команда</a></li>
+          <li><a class="nav-link scrollto" href="/events/idevent">Event</a></li>
+          <li class="dropdown"><a href="#"><span>Дополнительно</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              <li><a href="#">Drop Down 1</a></li>
-              <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
+              {{!-- {{#if userId}} --}}
+              <li>Привет {{username}}</li>
+              <li><a href="/users/profile">Мой Профиль</a></li>
+              <li><a href="/users/logout">Выйти</a></li>
+              {{!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
                 <ul>
                   <li><a href="#">Deep Drop Down 1</a></li>
                   <li><a href="#">Deep Drop Down 2</a></li>
@@ -82,10 +85,11 @@
                   <li><a href="#">Deep Drop Down 4</a></li>
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
-              </li>
-              <li><a href="#">Drop Down 2</a></li>
-              <li><a href="#">Drop Down 3</a></li>
-              <li><a href="#">Drop Down 4</a></li>
+              </li> --}}
+              {{!-- {{else}} --}}
+              <li><a href="/users/register">Регистрация</a></li>
+              <li><a href="/users/login">Войти</a></li>
+              {{!-- {{/if}} --}}
             </ul>
           </li>
           <li><a class="nav-link scrollto" href="#contact">Contact</a></li>
@@ -111,7 +115,7 @@
               <div class="carousel-content container">
                 <h2 class="animate__animated animate__fadeInDown">Добро <span>Mamba</span></h2>
                 <p class="animate__animated animate__fadeInUp">Ut velit est quam dolor ad a aliquid qui aliquid. Sequi ea ut et est quaerat sequi nihil ut aliquam. Occaecati alias dolorem mollitia ut. Similique ea voluptatem. Esse doloremque accusamus repellendus deleniti vel. Minus et tempore modi architecto.</p>
-                <a href="#about" class="btn-get-started animate__animated animate__fadeInUp scrollto">Read More</a>
+                <a href="/users/register" class="btn-get-started animate__animated animate__fadeInUp scrollto">Регистрация</a>
               </div>
             </div>
           </div>
