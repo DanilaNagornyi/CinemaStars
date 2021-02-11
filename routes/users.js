@@ -86,6 +86,8 @@ router.get('/profile', (req, res) => {
 router.get('/logout', (req, res) => {
   // разрушаю сессию
   req.session.destroy();
+  // очищаем cookie у пользователя
+  res.clearCookie('connect.key');
   res.redirect('/');
 });
 module.exports = router;
