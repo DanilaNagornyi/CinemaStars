@@ -74,6 +74,12 @@ router.post('/signin', async (req, res) => {
     } else { res.render('error', { message: 'неверный пароль' }); }
   } else { res.render({ message: 'Данный пользователь не зарегистрирован' }); }
 });
+
+// Routes profile
+router.get('/profile', (req, res) => {
+  res.render('profile', { title: 'Личный кабинет' });
+});
+
 // logout
 router.get('/logout', (req, res) => {
   // разрушаю сессию
