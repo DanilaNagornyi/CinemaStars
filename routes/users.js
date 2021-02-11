@@ -8,6 +8,8 @@ const router = express.Router();
 const bcrypt = require('bcrypt');
 // подключаем модель юзера
 const User = require('../models/user');
+// подключаем модель event
+const Event = require('../models/event');
 
 // сколько рандов мы будем хешировать кодировать;
 const saltRounds = 10;
@@ -50,7 +52,7 @@ router.post('/', async (req, res) => {
   req.session.username = user.firstName;
   req.session.userId = user._id;
   req.session.role = user.lastName.role;
-  res.redirect('/');
+  res.redirect('/users/profile');
 });
 // login
 router.get('/login', (req, res) => {
@@ -80,8 +82,20 @@ router.post('/login', async (req, res) => {
 });
 
 // Routes profile
-router.get('/profile', (req, res) => {
-  res.render('profile', { title: 'Личный кабинет' });
+router.get('/profile', async (req, res) => {
+  let user;
+  let createEvents;
+  let stafEvents;
+  console.log('_______----------->', req.session.userId);
+  try {
+    user = await User.findById(req.session.userId);
+    log(user);
+    createEvents = await Event.find({ creator: user._id });
+    stafEvents = await Event.find({ staff: user._id });
+  } catch (error) {
+    return res.render('error', { message: 'Пользователь не найден!' });
+  }
+  return res.render('profile', { user, createEvents, stafEvents });
 });
 
 // logout
