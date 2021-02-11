@@ -137,7 +137,7 @@
             <div class="well-left">
               <div class="single-well">
                 <a href="#">
-                  <img src="https://festdir.ru/wp-content/uploads/2020/08/WhatsApp-Image-2020-08-03-at-17.28.36-1.jpeg"
+                  <img src="{{event.photo}}"
                     alt="">
                 </a>
               </div>
@@ -152,17 +152,16 @@
                 </a>
                 <p>
                   {{event.description}}
-                  Очень крутой проект!!...
                 </p>
                 <ul>
                   <li>
-                    <i class="bi bi-check"></i> {{event.title}} Рабочее название
+                    <i class="bi bi-check"></i> {{event.title}}
                   </li>
                   <li>
-                    <i class="bi bi-check"></i> {{event.creator}}Режиссер
+                    <i class="bi bi-check"></i> {{event.creator.firstName}} {{event.creator.lastName}}
                   </li>
                   <li>
-                    <i class="bi bi-check"></i> {{event.genre}} Жанр
+                    <i class="bi bi-check"></i> {{event.genre}}
                   </li>
                 </ul>
               </div>
@@ -170,6 +169,8 @@
           </div>
           <!-- End col-->
           <div class="section-headline text-center">
+            <br>
+            <br>
             <h4>Уже в проекте</h4>
           </div>
           <hr>

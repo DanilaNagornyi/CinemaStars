@@ -59,7 +59,7 @@
           <li><a href="/" class="nav-link scrollto active"><i class="bx bx-home"></i> <span>На главную</span></a></li>
           <li><a href="#about" class="nav-link scrollto"><i class="bx bx-user"></i> <span>Обо мне</span></a></li>
           <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-file-blank"></i> <span>События</span></a></li>
-          <li><a href="#resume" class="nav-link scrollto"><i class="bx bx-add-to-queue"></i> <span>Создать Событие</span></a></li>
+          <li><a href="/events/addevent" class="nav-link scrollto"><i class="bx bx-add-to-queue"></i> <span>Создать Событие</span></a></li>
           <li><a href="#portfolio" class="nav-link scrollto"><i class="bx bx-book-content"></i> <span>Портфолио</span></a></li>
           <li><a href="#services" class="nav-link scrollto"><i class="bx bx-server"></i> <span>Скилы</span></a></li>
           <li><a href="#contact" class="nav-link scrollto"><i class="bx bx-envelope"></i> <span>Контакты</span></a></li>
@@ -304,28 +304,28 @@
             <h3 class="resume-title">Мои проекты</h3>
             {{#each createEvents}}
             <div class="resume-item">
-              <h4>Тут event.tittle {{createEvents.title}}</h4>
-              <h5>Тут будет event.createdAt{{createEvents.createdAt}}</h5>
-              <p><em>Тут будет event.location{{createEvents.location}} </em></p>
+              <h4>{{this.title}}</h4>
+              {{!-- <h5>Тут будет event.createdAt{{this.createdAt}}</h5> --}}
+              <p><em>Город: {{this.location}} </em></p>
               <ul>
-                <li>Тут будет event.description{{createEvents.description}}</li>
-                <li>Тут бдует event.projectType{{createEvents.projectType}}</li>
-                <li>Тут бдует event.staff{{createEvents.staff}}</li>
-                <li>Тут бдует event.genre{{createEvents.genre}}</li>
+                <li>Описание: {{this.description}}</li>
+                <li>Тип проекта: {{this.projectType}}</li>
+                <li>УчастникиЖ {{this.staff}}</li>
+                <li>Жанр: {{this.genre}}</li>
               </ul>
             </div>
             {{/each}}
-            <div class="resume-item">
-              <h4>Тут event.tittle {{createEvents.title}}</h4>
-              <h5>Тут будет event.createdAt{{createEvents.createdAt}}</h5>
+            {{!-- <div class="resume-item">
+              <h4>Тут event.tittle {{this.title}}</h4>
+              <h5>Тут будет event.createdAt{{this.createdAt}}</h5>
               <p><em>Тут будет event.location{{event.location}} </em></p>
               <ul>
-                <li>Тут будет event.description{{createEvents.description}}</li>
-                <li>Тут бдует event.projectType{{createEvents.projectType}}</li>
-                <li>Тут бдует event.staff{{createEvents.staff}}</li>
-                <li>Тут бдует event.genre{{createEvents.genre}}</li>
+                <li>Тут будет event.description{{this.description}}</li>
+                <li>Тут бдует event.projectType{{this.projectType}}</li>
+                <li>Тут бдует event.staff{{this.staff}}</li>
+                <li>Тут бдует event.genre{{this.genre}}</li>
               </ul>
-            </div>
+            </div> --}}
           </div>
         </div>
 
@@ -338,7 +338,7 @@
 
         <div class="section-title">
           <h2>Портфолио</h2>
-          <p>Бла бла бла о себе - user.description{{user.description}}</p>
+          <p>{{user.description}}</p>
         </div>
 
         <div class="row" data-aos="fade-up">

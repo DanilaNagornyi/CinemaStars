@@ -6,7 +6,7 @@ mongoose.connect('mongodb://localhost:27017/cinemaStar', {
 });
 mongoose.pluralize(null);
 
-const User = mongoose.model('User', {
+const User = mongoose.model('user', {
   firstName: { type: String, required: true },
   lastName: { type: String, required: true },
   age: Number,

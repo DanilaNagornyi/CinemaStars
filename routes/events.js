@@ -1,5 +1,6 @@
 const express = require('express');
 const Event = require('../models/event');
+const User = require('../models/user');
 
 const router = express.Router();
 
@@ -29,10 +30,12 @@ router.post('/', async (req, res) => {
   }
 });
 
-router.get('/:id', async(req,res)=>{
-  const event = await Event.findById(req.params.id);
-  res.render('event', {event});
-})
+router.get('/:id', async (req, res) => {
+  log('========>', req.params.id);
+  const event = await Event.findById(req.params.id).populate('creator');
+  log(1111, event.description);
+  res.render('event', { event });
+});
 
 // {{!-- title: { type: String, required: true },
 // description: { type: String },

@@ -86,12 +86,13 @@ router.get('/profile', async (req, res) => {
   let user;
   let createEvents;
   let stafEvents;
-  console.log('_______----------->', req.session.userId);
   try {
     user = await User.findById(req.session.userId);
-    log(user);
     createEvents = await Event.find({ creator: user._id });
-    stafEvents = await Event.find({ staff: user._id });
+    stafEvents = await Event.find().populate('staff');
+    stafEvents = stafEvents.filter((el) => el.staff.includes(user._id));
+    log('=======creator===>', createEvents);
+    log('=======staf===>', stafEvents);
   } catch (error) {
     return res.render('error', { message: 'Пользователь не найден!' });
   }

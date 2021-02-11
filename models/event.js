@@ -5,7 +5,7 @@ mongoose.pluralize(null);
 
 const Event = mongoose.model('event', {
   title: { type: String, required: true },
-  description: { type: String },
+  description: String,
   photo: { type: String, default: 'https://www.pinclipart.com/picdir/big/416-4160500_you-wont-have-any-technical-issues-to-deal.png' },
   creator: { type: mongoose.ObjectId, ref: 'user' },
   createdAt: { type: Date, default: Date.now() },
