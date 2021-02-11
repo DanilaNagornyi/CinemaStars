@@ -12,7 +12,9 @@
   <meta content="" name="keywords">
 
   <!-- Favicons -->
-  <link href="/main/img/favicon.png" rel="icon">
+  <link
+    href="https://img2.freepng.ru/20180408/pbq/kisspng-computer-icons-star-symbol-icon-design-clip-art-5-star-5aca7338dbff06.0018600415232172089011.jpg"
+    rel="icon">
   <link href="/main/img/apple-touch-icon.png" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
@@ -57,7 +59,7 @@
       </div>
     </div>
   </section>
-  
+
 
   <!-- ======= Header ======= -->
   <header id="header" class="d-flex align-items-center">
@@ -65,7 +67,7 @@
 
       <div class="logo me-auto">
         <h1><a href="index.html">
-          <span>&#9733;</span>Cinema Star</a></h1>
+            <span>&#9733;</span>Cinema Star</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="index.html"><img src="/main/img/logo.png" alt="" class="img-fluid"></a>-->
       </div>
@@ -79,8 +81,7 @@
           <li><a class="nav-link scrollto" href="/events/idevent">Проекты</a></li>
           <li class="dropdown"><a href="#"><span>Дополнительно</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
-              {{!-- {{#if userId}} --}}
-              <li>Привет {{username}}</li>
+              {{#if userId}}
               <li><a href="/users/profile">Мой Профиль</a></li>
               <li><a href="/users/logout">Выйти</a></li>
               {{!-- <li class="dropdown"><a href="#"><span>Deep Drop Down</span> <i class="bi bi-chevron-right"></i></a>
@@ -92,13 +93,16 @@
                   <li><a href="#">Deep Drop Down 5</a></li>
                 </ul>
               </li> --}}
-              {{!-- {{else}} --}}
+              {{else}}
               <li><a href="/users/register">Регистрация</a></li>
               <li><a href="/users/login">Войти</a></li>
-              {{!-- {{/if}} --}}
+              {{/if}}
             </ul>
           </li>
-          <li><a class="nav-link scrollto" href="#contact">Контакты</a></li>
+
+          {{#if username}}
+          <li><a class="nav-link scrollto" href="#contact">Привет, {{username}}</a></li>
+          {{/if}}
         </ul>
         <i class="bi bi-list mobile-nav-toggle"></i>
       </nav><!-- .navbar -->
@@ -116,7 +120,8 @@
         <div class="carousel-inner" role="listbox">
 
           <!-- Slide 1 -->
-          <div class="carousel-item active" style="background-image: url('/main/img/slide/slide-1.jpg');">
+          <div class="carousel-item active"
+            style="background-image: url('https://www.startfilm.ru/images/base/film/f_659711/big_startfilmru1369096.jpg');">
             <div class="carousel-container">
               <div class="carousel-content container">
                 <h2 class="animate__animated animate__fadeInDown">Добро пожаловать в <span>Cinema Star</span></h2>
@@ -130,7 +135,8 @@
           </div>
 
           <!-- Slide 2 -->
-          <div class="carousel-item" style="background-image: url('/main/img/slide/slide-2.jpg');">
+          <div class="carousel-item"
+            style="background-image: url('https://media.osram.info/media/img/osram-dam-59313/s');">
             <div class="carousel-container">
               <div class="carousel-content container">
                 <h2 class="animate__animated animate__fadeInDown">Все ваши данные защищены
@@ -144,11 +150,12 @@
           </div>
 
           <!-- Slide 3 -->
-          <div class="carousel-item" style="background-image: url('/main/img/slide/slide-3.jpg');">
+          <div class="carousel-item"
+            style="background-image: url('https://www.startfilm.ru/images/base/film/f_659620/big_startfilmru1339314.jpg');">
             <div class="carousel-container">
               <div class="carousel-content container">
                 <h2 class="animate__animated animate__fadeInDown">Работайте над неограниченным количеством проектов</h2>
-                <p class="animate__animated animate__fadeInUp">Кинолифт не имеет границ, он открыт для каждого. Вы
+                <p class="animate__animated animate__fadeInUp">Cinema Star не имеет границ, он открыт для каждого. Вы
                   можете оставаться на связи из любой точки мира где есть доступ в интернет.</p>
                 <a href="/users/register"
                   class="btn-get-started animate__animated animate__fadeInUp scrollto">Регистрация</a>
@@ -622,7 +629,7 @@
         <div class="row  d-flex align-items-stretch">
 
           <div class="col-lg-6 faq-item" data-aos="fade-up" data-aos-delay="100">
-            <h4>Кто может зарегистрироваться в сервисе Кинолифт?</h4>
+            <h4>Кто может зарегистрироваться в сервисе Cinema Star?</h4>
             <p>
               Dolor sit amet consectetur adipiscing elit pellentesque habitant morbi. Id interdum velit laoreet id donec
               ultrices. Fringilla phasellus faucibus scelerisque eleifend donec pretium. Est pellentesque elit

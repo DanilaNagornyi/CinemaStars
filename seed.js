@@ -15,9 +15,9 @@ async function main() {
     email: 'danilanag@gmail.com',
     password: 'qwerty123',
     role: 'Актер',
-    // photo: 
-        // ['https://www.pinclipart.com/picdir/big/416-4160500_you-wont-have-any-technical-issues-to-deal.png'],
-    // video: 'https://www.youtube.com/watch?v=Wn0HQbchgww',
+    photo: 
+        'https://www.pinclipart.com/picdir/big/416-4160500_you-wont-have-any-technical-issues-to-deal.png',
+    video: 'https://www.youtube.com/watch?v=Wn0HQbchgww',
     description: 'Я отличаюсь от многих других актёров тем что благодаря дополнительному образованию и непрерывному стремлению к саморазвитию я глубже, дотошнее и тщательнее вживаюсь в роль. Я не поверхностный актёр и всегда глубоко погружаюсь в образ. Я мечтаю сыграть множество разноплановых ролей, я не сторонник какого-то одного жанра, я за многообразие)',
     minSalary: 100000,
     maxSalary: 100000000,
@@ -39,8 +39,8 @@ async function main() {
     email: 'ilya88@gmail.com',
     password: 'qwerty123',
     role: 'Оператор',
-    // photo: ['https://www.pinclipart.com/picdir/big/416-4160500_you-wont-have-any-technical-issues-to-deal.png'],
-    // video: 'https://www.youtube.com/watch?v=_mZHMwbk_6c&feature=emb_logo',
+    photo: 'https://www.pinclipart.com/picdir/big/416-4160500_you-wont-have-any-technical-issues-to-deal.png',
+    video: 'https://www.youtube.com/watch?v=_mZHMwbk_6c&feature=emb_logo',
     description: `Как актёр, сыграл в более 40 музыкальных клипах звёзд Российской эстрады( главные роли ). Более 30 рекламных видеороликов. Работы в кино: от сериалов до полного метра. Ставил и режиссировал шоу разного плана.
     Характер спокойный. Стрессоустойчивый. Хорошее чувство кадра и гибкость в работе с режиссёрами. Занимался кикбоксингом 8 лет. Хорошая боевая подготовка. Акробатика.
     Танцы-профессионально. Постановка хореографии. Владение всеми современными направлениями.
@@ -66,8 +66,8 @@ async function main() {
     email: 'aleks90@gmail.com',
     password: 'qwerty123',
     role: 'Режиссер',
-    // photo: ['https://sun9-63.userapi.com/c854420/v854420986/370d7/PJ0lwyoGjHI.jpg', 'https://i02.fotocdn.net/s114/124c7320d5cd6578/user_l/2591692911.jpg'],
-    // video: 'https://www.youtube.com/watch?v=iq8UAvKTqtw',
+    photo: 'https://sun9-63.userapi.com/c854420/v854420986/370d7/PJ0lwyoGjHI.jpg',
+    video: 'https://www.youtube.com/watch?v=iq8UAvKTqtw',
     description: `Первый раз в кино снимался в армии в фильм Теплые ветры древних булгар. Потом он назывался по другому. В массовых сценах играли воинов этих самых булгар. 
     Там же первый раз снялся в эпизоде в бое с каскадером крупным планом) Где я был нападающим на деревню, а каскадер эту деревню защищал. Потом надолго отошел от этого процесса.
     В 35 лет решил попробовать актерское искусство, пошел на курсы. Отучился год и понял, что хочу в этом развиваться. Пошел в ИТИ. Сейчас закончил (2020). 
@@ -83,11 +83,12 @@ async function main() {
   users.push(director);
   await User.insertMany(users);
   
-  
+
   const elbrusLife = new Event({
     title: 'Elbrus',
     description: 'Документальный фильм о жизни в первом буткемпе в России',
-    // photo: 'https://elbrusboot.camp/images/campus/03.JPG',
+    photo: 'https://elbrusboot.camp/images/campus/03.JPG',
+    video: 'https://www.youtube.com/watch?v=Un3ST7BiiO4',
     creator: [director._id],
     projectType: 'Полнометражный',
     genre: 'Документальный',
