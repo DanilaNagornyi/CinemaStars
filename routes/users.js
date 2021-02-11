@@ -1,12 +1,14 @@
 /* eslint-disable no-underscore-dangle */
 /* eslint-disable max-len */
 const express = require('express');
+
 // создаем экземпляр роутера из объекта экспресс
 const router = express.Router();
 // подключаем библиотеку для шифрования паролей
 const bcrypt = require('bcrypt');
 // подключаем модель юзера
 const User = require('../models/user');
+
 // сколько рандов мы будем хешировать кодировать;
 const saltRounds = 10;
 // деструктурируем объект консоль
@@ -25,7 +27,7 @@ router.post('/', async (req, res) => {
   log(req.body);
   // деструктурируем переменную
   const {
-    firstName, lastName, age, email, tel, role, instagram, city, genre, projectType, sex, photo, video, description, minsulary, password,
+    firstName, lastName, age, email, tel, role, instagram, location, genre, projectType, sex, photo, video, description, minsulary, password,
   } = req.body;
   // ищем пользователя в базе
   const findUser = await User.findOne({ email });
@@ -38,7 +40,7 @@ router.post('/', async (req, res) => {
   const hash = bcrypt.hashSync(password, salt);
   // создаем нового юзера по модели
   const user = await User.create({
-    firstName, lastName, age, email, tel, role, instagram, city, genre, projectType, sex, photo, video, description, minsulary, password: hash,
+    firstName, lastName, age, email, tel, role, instagram, location, genre, projectType, sex, photo, video, description, minsulary, password: hash,
   });
   // сохраняем его в базу
   // await user.save();
