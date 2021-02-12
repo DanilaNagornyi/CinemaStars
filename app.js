@@ -1,5 +1,6 @@
 // const createError = require('http-errors');
 const express = require('express');
+const methodOverride = require('method-override');
 const mongoose = require('mongoose');
 const path = require('path');
 const cookieParser = require('cookie-parser');
@@ -32,22 +33,30 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+// app.use(methodOverride('X-HTTP-Method-Override'));
+app.use(methodOverride('_method'));
 
 // подключаем локальную базу данных
-mongoose.connect('mongodb://localhost:27017/cinemaStar', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect('mongodb://localhost:27017/cinemaStar', {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+  useFindAndModify: false,
+});
 
 // подключаем паршиалс
 hbs.registerPartials(path.join(__dirname, '/views/partials'));
 
 // настройка сессий
-app.use(session({
-  store: new MongoStore({ mongooseConnection: mongoose.connection }),
-  secret: 'kasjdfl', // секретный ключ для кодировки id сессии кодирует данные express-session
-  resave: true, // пересохранять сессию даже при отсутствии изменений
-  saveUninitialized: false, // сохранять сессию при первом обращении к сайта
-  cookie: { maxAge: 30000000, secure: false },
-  httpOnly: true, // ?
-}));
+app.use(
+  session({
+    store: new MongoStore({ mongooseConnection: mongoose.connection }),
+    secret: 'kasjdfl', // секретный ключ для кодировки id сессии кодирует данные express-session
+    resave: true, // пересохранять сессию даже при отсутствии изменений
+    saveUninitialized: false, // сохранять сессию при первом обращении к сайта
+    cookie: { maxAge: 30000000, secure: false },
+    httpOnly: true, // ?
+  })
+);
 // Мидлваре которая ко всем запросам к сереверу добавляет переменные в сессию
 app.use((req, res, next) => {
   res.locals.username = req.session?.username; // записываем глобальную переменную username для hbs
@@ -58,12 +67,9 @@ app.use((req, res, next) => {
   next();
 });
 
-
-
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
-
 
 // catch 404 and forward to error handler
 // app.use(function(req, res, next) {

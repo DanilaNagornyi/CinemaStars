@@ -7,10 +7,18 @@
   <title>Document</title>
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha1/css/bootstrap.min.css"
     integrity="sha384-r4NyP46KrjDleawBgD5tp8Y7UzmLA05oM1iAEQ17CSuDqnUK2+k9luXQOfXJCJ4I" crossorigin="anonymous">
-
+<style type="text/css">
+  body {
+    background-image: radial-gradient(circle, #5c0067 0%, #00d4ff 100%);
+  }
+  .white {
+    color:aliceblue;
+  }
+</style>
 </head>
 
-<body>
+
+<body >
   <div class="container" style="margin-top: 100px;">
     {{!-- title: { type: String, required: true },
   description: { type: String },
@@ -25,31 +33,36 @@
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4">
-        <h1>Создание события</h1>
-        <form method="POST" action='/events/'>
+        <h1 class="white">Создание события</h1>
+        {{#if event}}
+        <form method="POST" action='/events/{{event._id}}?_method=PUT'> 
+        {{!-- <input type="hidden" name="_method" value="PUT"> --}}
+        {{else}}
+        <form method="POST" action='/events'>
+        {{/if}}
           <div class="form-group">
-            <label for="location">Город</label>
-            <input type="text" name="location" class="form-control" id="location" placeholder="Москва">
+            <label for="location" class="white">Город</label>
+            <input type="text" name="location" class="form-control" id="location" value="{{event.location}}" placeholder="Москва">
           </div>
           <div class="form-group">
-            <label for="title">Название проекта</label>
-            <input type="text" name="title" class="form-control" id="title" placeholder="Название">
+            <label for="title" class="white">Название проекта</label>
+            <input type="text" name="title" class="form-control" id="title" value="{{event.title}}" placeholder="Название">
           </div>
 
           <div class="form-group">
-            <label for="title">Фото проекта</label>
-            <input type="url" name="photo" class="form-control" id="url" placeholder="Ссылка на картинку">
+            <label for="title" class="white">Фото проекта</label>
+            <input type="url" name="photo" class="form-control" id="url" value="{{event.photo}}" placeholder="Ссылка на картинку">
           </div>
 
           <div class="form-group">
-            <label for="projectType">Тип проекта</label>
+            <label for="projectType" class="white">Тип проекта</label>
             <select name="projectType" class="form-control" id="projectType">
               <option value="Короткометражка" selected>Короткометражка</option>
               <option value="Полнометражка">Полнометражка</option>
             </select>
           </div>
           <div class="form-group">
-            <label for="genre">Жанры проекта</label>
+            <label for="genre" class="white">Жанры проекта</label>
             <select multiple name="genre" class="form-control" id="genre">
               <option value="Комедия" selected>Комедия</option>
               <option value="Драма">Драма</option>
@@ -58,7 +71,7 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="roles">Требуемые роли</label>
+            <label for="roles" class="white">Требуемые роли</label>
             <select multiple name="roles" class="form-control" id="roles">
               <option value="Режиссер" selected>Режиссёр</option>
               <option value="Продюсер">Продюсер</option>
@@ -69,12 +82,16 @@
             </select>
           </div>
           <div class="form-group">
-            <label for="description">Описание проекта</label>
-            <textarea class="form-control" name="description" id="description" rows="3"></textarea>
+            <label for="description" class="white">Описание проекта</label>
+            <textarea class="form-control" name="description" id="description" value="{{event.description}}" rows="3">{{event.description}}</textarea>
           </div>
           <div class="form-group">
             <br>
+            {{#if event}}
+            <button type="submit" class="btn btn-info">Изменить проект</button>
+            {{else}}
             <button type="submit" class="btn btn-info">Создать проект</button>
+            {{/if}}
           </div>
         </form>
       </div>

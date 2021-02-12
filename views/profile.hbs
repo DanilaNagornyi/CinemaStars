@@ -23,6 +23,7 @@
   <link href="/profile/vendor/boxicons/css/boxicons.min.css" rel="stylesheet">
   <link href="/profile/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
   <link href="/profile/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous"/>
 
   <!-- Template Main CSS File -->
   <link href="/profile/css/style.css" rel="stylesheet">
@@ -268,27 +269,17 @@
             </div>
             {{/each}}
             
-            {{!-- <h3 class="resume-title">Education</h3> --}}
-            {{!-- <div class="resume-item">
-              <h4>Master of Fine Arts &amp; Graphic Design</h4>
-              <h5>2015 - 2016</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Qui deserunt veniam. Et sed aliquam labore tempore sed quisquam iusto autem sit. Ea vero voluptatum qui ut dignissimos deleniti nerada porti sand markend</p>
-            </div>
-            <div class="resume-item">
-              <h4>Bachelor of Fine Arts &amp; Graphic Design</h4>
-              <h5>2010 - 2014</h5>
-              <p><em>Rochester Institute of Technology, Rochester, NY</em></p>
-              <p>Quia nobis sequi est occaecati aut. Repudiandae et iusto quae reiciendis et quis Eius vel ratione eius unde vitae rerum voluptates asperiores voluptatem Earum molestiae consequatur neque etlon sader mart dila</p>
-            </div> --}}
+            {{!-- My Event --}}
           </div>
           <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
             <h3 class="resume-title">Мои проекты</h3>
             {{#each createEvents}}
             <div class="resume-item">
               <h4><a href="/events/{{this._id}}">{{this.title}}</a> </h4>
+              {{!-- <div class="home" style="text-align: end; padding:30px;"><a href="/">✖️</a></div> --}}
               {{!-- <h5>Тут будет event.createdAt{{this.createdAt}}</h5> --}}
               <p><em>Город: {{this.location}} </em></p>
+              <div class="" style="text-align: end; padding:10px;"><a href="/events/addevent/{{this._id}}" data-buttontype="edit"><i class="far fa-edit editbutton"></i></a><a class="delete" href="/events/delete/{{this._id}}" data-buttontype="delete"> <i class="far fa-trash-alt"></i></a></div>
               <ul>
                 <li> <img src="{{this.photo}}" width="40%" alt=""> </li>
                 <li>Описание: {{this.description}}</li>
