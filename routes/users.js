@@ -44,6 +44,7 @@ router.post('/', async (req, res) => {
   const user = await User.create({
     firstName, lastName, age, email, tel, role, instagram, location, genre, projectType, sex, photo, video, description, minsulary, password: hash,
   });
+ 
   // сохраняем его в базу
   // await user.save();
   // снова ищем его из базы что бы получить его id
@@ -76,7 +77,7 @@ router.post('/login', async (req, res) => {
       req.session.userId = user._id;
       req.session.role = user.role;
       log(user.id);
-      res.redirect('/');
+      res.redirect('/users/profile');
     } else { res.render('error', { message: 'неверный пароль' }); }
   } else { res.render('error', { message: 'Данный пользователь не зарегистрирован' }); }
 });
