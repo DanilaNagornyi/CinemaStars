@@ -74,12 +74,12 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="#hero">Домой</a></li>
+          {{!-- <li><a class="nav-link scrollto active" href="#hero">Домой</a></li> --}}
           <li><a class="nav-link scrollto" href="#about">О Нас</a></li>
           <li><a class="nav-link scrollto" href="#services">Мы предлагаем</a></li>
           <li><a class="nav-link scrollto" href="#team">Наша Команда</a></li>
-          <li><a class="nav-link scrollto" href="/events/idevent">Проекты</a></li>
-          <li class="dropdown"><a href="#"><span>Дополнительно</span> <i class="bi bi-chevron-down"></i></a>
+          <li><a class="nav-link scrollto" href="#portfolio">Проекты</a></li>
+          <li class="dropdown"><a href="#"><span>Личный кабинет</span> <i class="bi bi-chevron-down"></i></a>
             <ul>
               {{#if userId}}
               <li><a href="/users/profile">Мой Профиль</a></li>
@@ -128,8 +128,13 @@
                 <p class="animate__animated animate__fadeInUp">Международный сервис поиска актеров.
                   Мы придумали комфортную, а главное –
                   профессиональную платформу для встреч режиссеров, актеров, агентов и кастинг-директоров.</p>
+                {{#if userId}}
                 <a href="/users/register"
                   class="btn-get-started animate__animated animate__fadeInUp scrollto">Регистрация</a>
+                {{else}}
+                <a href="/events/addevent" class="btn-get-started animate__animated animate__fadeInUp scrollto">Создать
+                  событие</a>
+                {{/if}}
               </div>
             </div>
           </div>

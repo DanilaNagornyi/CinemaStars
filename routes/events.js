@@ -106,18 +106,21 @@ router.get('/:id', async (req, res) => {
     let tempUsers = await User.find({ role: vacancies[i] });
     users = [...users, ...tempUsers];
   }
-function compareGenre(arrUser, arrEvent){
-  for (let i =0; i<arrUser.length; i++) {
-    if(arrEvent.includes(arrUser[i])) return true
+  console.log('users_____________________', users);
+  function compare(arrUser, arrEvent) {
+    for (let i = 0; i < arrUser.length; i++) {
+      if (arrEvent.includes(arrUser[i])) return true;
+    }
+    return false;
   }
-return false
-}
-  let userFilter = users.filter(el => !event.staff.includes(el._id));
 
-  userFilter = users.filter(el => compare(el.genre, event.genre));
+  let userFilter = users.filter((el) => !event.staff.includes(el._id));
 
-  console.log('event.genre==========================>', event.genre);
-  console.log('USERFILLLTER==========================>', userFilter);
+  userFilter = userFilter.filter((el) => compare(el.genre, event.genre));
+  console.log('userFilter----------------s', userFilter);
+
+  // console.log('event.genre==========================>', event.genre);
+  // console.log('USERFILLLTER==========================>', userFilter);
   // console.log('USERS=======================>',users);
   // console.log('StafffffFF=======================>',event.staff);
 
@@ -125,19 +128,32 @@ return false
   // userForHireDiv.addEventListener('click', (event)=>{
   //   console.log(event.target(userId));
   // });
-
+  log('taffP.staff', staffP.staff);
   res.render('event', { event, users: userFilter, staff: staffP.staff });
 });
 
 // Add user to  the project team
 router.get('/hire/:idUser/:idEvent', async (req, res) => {
   const { idUser, idEvent } = req.params;
-  console.log('======>>>>>>>>>>>>>>', idEvent)
+  console.log('======>>>>>>>>>>>>>>', idEvent);
   const user = await User.findById(idUser);
-  const event = await Event.findOneAndUpdate({ _id: idEvent }, { $push: { staff: user._id } });
+  const event = await Event.findOneAndUpdate(
+    { _id: idEvent },
+    { $push: { staff: user._id } }
+  );
   res.redirect(`/events/${idEvent}`);
 });
-
+// Delete user from  the project team
+router.get('/fire/:idUser/:idEvent', async (req, res) => {
+  // const event = await Event.findById(req.params.idEvent).lean();
+  // const eventFilter = event.staff.filter((el) => el !== req.params.idUser);
+  await Event.findByIdAndUpdate(req.params.idEvent, {
+    $pullAll: { staff: [req.params.idUser] },
+  });
+  res.redirect(`/events/${req.params.idEvent}`);
+  // await Event.findByIdAndUpdate(req.params.idEvent, { staff: eventFilter });
+  // await eventFilter.save();
+});
 
 // {{!-- title: { type: String, required: true },
 // description: { type: String },

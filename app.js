@@ -8,6 +8,8 @@ const logger = require('morgan');
 const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const hbs = require('hbs');
+require('dotenv').config();
+
 
 // создаем дополнительное условие в hbs которое
 // позволяем в создать свой if и сравнивать между собой значения
@@ -21,7 +23,7 @@ hbs.registerHelper('if_eq', function (a, b, opts) {
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const eventsRouter = require('./routes/events');
-const telegramRouter = require('./routes/telegram')
+const telegramRouter = require('./routes/telegram');
 
 const app = express();
 
@@ -38,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(methodOverride('_method'));
 
 // подключаем локальную базу данных
-mongoose.connect('mongodb://localhost:27017/cinemaStar', {
+mongoose.connect(process.env.MONGO_CONNECTION, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
   useFindAndModify: false,

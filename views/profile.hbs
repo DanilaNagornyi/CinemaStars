@@ -255,16 +255,16 @@
         <div class="row">
           <div class="col-lg-6" data-aos="fade-up">
             <h3 class="resume-title">Участие в проектах</h3>
-            {{#each stafEvent}}
+            {{#each stafEvents}}
             <div class="resume-item">
-              <h4>Тут event.tittle {{this.title}}</h4>
-              <p><em>Тут будет event.description{{this.description}}</em></p>
-              <h5>Тут будет event.createdAt{{this.createdAt}}</h5>
+              <h4>{{this.title}}</h4>
+              <p><em>{{this.description}}</em></p>
+              <h5>{{this.createdAt}}</h5>
               <ul>
                 <li> <img src="{{this.photo}}" width="40%" alt=""> </li>
-                <li>Тут будет event.location{{this.location}}</li>
-                <li>Тут будет event.creator{{this.creator}}</li>
-                <li>Тут будет event.genre{{this.genre}}</li>
+                <li>{{this.location}}</li>
+                <li>{{this.creator}}</li>
+                <li>{{this.genre}}</li>
               </ul>
             </div>
             {{/each}}
@@ -585,14 +585,14 @@
   <footer id="footer">
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>iPortfolio</span></strong>
+        &copy; Copyright <strong><span><span>&#9733;</span>CinemaStar</span></strong>
       </div>
       <div class="credits">
         <!-- All the links in the footer should remain intact. -->
         <!-- You can delete the links only if you purchased the pro version. -->
         <!-- Licensing information: https://bootstrapmade.com/license/ -->
         <!-- Purchase the pro version with working PHP/AJAX contact form: https://bootstrapmade.com/iportfolio-bootstrap-portfolio-websites-template/ -->
-        Designed by <a href="https://bootstrapmade.com/">BootstrapMade</a>
+        Designed by <a href="https://bootstrapmade.com/">AIDA</a>
       </div>
     </div>
   </footer><!-- End  Footer -->

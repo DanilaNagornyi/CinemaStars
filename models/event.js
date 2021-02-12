@@ -1,6 +1,7 @@
+/* eslint-disable max-len */
 const mongoose = require('mongoose');
 
-mongoose.connect('mongodb://localhost:27017/cinemaStar', { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
+mongoose.connect(process.env.MONGO_CONNECTION, { useNewUrlParser: true, useUnifiedTopology: true, useFindAndModify: false });
 mongoose.pluralize(null);
 
 const Event = mongoose.model('event', {
