@@ -20,6 +20,7 @@ hbs.registerHelper('if_eq', function (a, b, opts) {
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const eventsRouter = require('./routes/events');
+const telegramRouter = require('./routes/telegram')
 
 const app = express();
 
@@ -63,6 +64,7 @@ app.use((req, res, next) => {
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/events', eventsRouter);
+app.use('/forms', telegramRouter)
 
 
 // catch 404 and forward to error handler
