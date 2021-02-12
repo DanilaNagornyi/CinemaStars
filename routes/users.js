@@ -92,8 +92,6 @@ router.get('/profile', async (req, res) => {
     createEvents = await Event.find({ creator: user._id });
     stafEvents = await Event.find().populate('staff');
     stafEvents = stafEvents.filter((el) => el.staff.includes(user._id));
-    log('=======creator===>', createEvents);
-    log('=======staf===>', stafEvents);
   } catch (error) {
     return res.render('error', { message: 'Пользователь не найден!' });
   }

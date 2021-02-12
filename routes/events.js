@@ -18,10 +18,25 @@ router.get('/addevent', (req, res) => {
 // create event
 router.post('/', async (req, res) => {
   log('post event');
-  const { title, description, photo, projectType, genre, roles, location } = req.body;
+  const {
+    title,
+    description,
+    photo,
+    projectType,
+    genre,
+    roles,
+    location,
+  } = req.body;
   try {
     await Event.create({
-      title, description, photo, projectType, genre, roles, location, creator: req.session.userId
+      title,
+      description,
+      photo,
+      projectType,
+      genre,
+      roles,
+      location,
+      creator: req.session.userId,
     });
     return res.redirect('/');
   } catch (error) {
@@ -30,6 +45,56 @@ router.post('/', async (req, res) => {
   }
 });
 
+router.get('/addevent/:id', async (req, res) => {
+  try {
+    const event = await Event.findById(req.params.id);
+    return res.render('addEvent', { event });
+  } catch (error) {
+    return res.render('error', { message: 'Не удалось сохранить в базу' });
+  }
+});
+
+//Редактируем немного по колхозному
+
+router.put('/:id', async (req, res) => {
+  log('======>>>  ok!');
+  const {
+    title,
+    description,
+    photo,
+    projectType,
+    genre,
+    roles,
+    location,
+  } = req.body;
+  try {
+    const event = await Event.findByIdAndUpdate(req.params.id, {
+      title,
+      description,
+      photo,
+      projectType,
+      genre,
+      roles,
+      location,
+      creator: req.session.userId,
+    });
+    return res.redirect('/users/profile');
+  } catch (error) {
+    return res.render('error', { message: 'Не удалось сохранить в базу' });
+  }
+});
+
+//Delete event
+router.get('/delete/:id', async (req, res) => {
+  try {
+    await Event.findByIdAndDelete(req.params.id);
+  } catch (error) {
+    return res.render('error', { message: 'Не удалось сохранить в базу' });
+  }
+  return res.redirect('/users/profile');
+});
+
+//Подтягиваем на страницу из базы данные
 router.get('/:id', async (req, res) => {
   const event = await Event.findById(req.params.id).populate('creator');
   const staffP = await Event.findById(req.params.id).populate('staff');
@@ -73,6 +138,7 @@ router.get('/hire/:idUser/:idEvent', async (req, res) => {
   res.redirect(`/events/${idEvent}`);
 });
 
+
 // {{!-- title: { type: String, required: true },
 // description: { type: String },
 // photo: { type: String, default: 'https://www.pinclipart.com/picdir/big/416-4160500_you-wont-have-any-technical-issues-to-deal.png' },
@@ -84,21 +150,4 @@ router.get('/hire/:idUser/:idEvent', async (req, res) => {
 // roles: [{ type: String, required: true }],
 // location: String, --}}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 module.exports = router;
-
