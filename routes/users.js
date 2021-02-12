@@ -99,6 +99,19 @@ router.get('/profile', async (req, res) => {
   return res.render('profile', { user, createEvents, stafEvents });
 });
 
+// Profile current user
+router.get('/profile/:id', async (req, res) => {
+  let user;
+  let createEvents;
+  let stafEvents;
+  try {
+    user = await User.findById(req.params.id);
+  } catch (error) {
+    return res.render('error', { message: 'Пользователь не найден!' });
+  }
+  return res.render('profile', { user });
+});
+
 // logout
 router.get('/logout', (req, res) => {
   // разрушаю сессию

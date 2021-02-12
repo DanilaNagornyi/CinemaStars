@@ -51,7 +51,7 @@
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a class="nav-link scrollto active" href="/">Домой</a></li>
+          <li><a class="nav-link scrollto active" href="/">На главную</a></li>
           <li><a class="nav-link scrollto" href="#about">О событии</a></li>
           <li><a class="nav-link scrollto" href="#team">Собери команду</a></li>
           <li><a class="nav-link scrollto" href="#contact">Контакты</a></li>
@@ -75,10 +75,9 @@
             style="background-image: url('https://rtvi.com/upload/iblock/776/7764c2cfc043def4c1dfb6be2f699dc5.jpg')">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">Собери команду </h2>
-                <p class="animate__animated animate__fadeInUp">Профессионалы со всего мира</p>
-                <a href="#about"
-                  class="btn-get-started scrollto animate__animated animate__fadeInUp">Камера.Мотор.Поехали!</a>
+                <h2 class="animate__animated animate__fadeInDown">Открытые позиции: {{event.roles}}</h2>
+                <p class="animate__animated animate__fadeInUp">{{event.title}}</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">О событии</a>
               </div>
             </div>
           </div>
@@ -86,10 +85,9 @@
           <div class="carousel-item" style="background-image: url('https://pbs.twimg.com/media/D978WimWsAENdQU.jpg')">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">Используй ресурсы ведущих студий</h2>
-                <p class="animate__animated animate__fadeInUp">Поддержка в реализации от ведущих студий</p>
-                <a href="#about"
-                  class="btn-get-started scrollto animate__animated animate__fadeInUp">Камера.Мотор.Поехали!</a>
+                <h2 class="animate__animated animate__fadeInDown">Открытые позиции: {{event.roles}}</h2>
+                <p class="animate__animated animate__fadeInUp">{{event.title}}</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">О событии</a>
               </div>
             </div>
           </div>
@@ -97,10 +95,9 @@
           <div class="carousel-item" style="background-image: url('https://cdn.wallpapersafari.com/5/99/BA7YM1.jpeg')">
             <div class="carousel-container">
               <div class="container">
-                <h2 class="animate__animated animate__fadeInDown">Поиск локаций</h2>
-                <p class="animate__animated animate__fadeInUp">Находи кастинги в актуальных локациях</p>
-                <a href="#about"
-                  class="btn-get-started scrollto animate__animated animate__fadeInUp">Камера.Мотор.Поехали!</a>
+                <h2 class="animate__animated animate__fadeInDown">Открытые позиции: {{event.roles}}</h2>
+                <p class="animate__animated animate__fadeInUp">{{event.title}}</p>
+                <a href="#about" class="btn-get-started scrollto animate__animated animate__fadeInUp">О событии</a>
               </div>
             </div>
           </div>
@@ -137,8 +134,7 @@
             <div class="well-left">
               <div class="single-well">
                 <a href="#">
-                  <img src="{{event.photo}}"
-                    alt="">
+                  <img src="{{event.photo}}" alt="">
                 </a>
               </div>
             </div>
@@ -152,6 +148,7 @@
                 </a>
                 <p>
                   {{event.description}}
+                  {{event._id}}
                 </p>
                 <ul>
                   <li>
@@ -174,7 +171,7 @@
             <h4>Уже в проекте</h4>
           </div>
           <hr>
-
+          {{#each staff}}
           <div class="col-md-2 col-sm-10 col-xs-12">
             <div class="single-team-member">
               <div class="team-img">
@@ -197,11 +194,12 @@
                 </div>
               </div>
               <div class="team-content text-center">
-                <h4>Andrew Arnold</h4>
+                <h4>{{this.firstname}}</h4>
                 <p>Web Developer</p>
               </div>
             </div>
           </div>
+          {{/each}}
         </div>
       </div>
     </div><!-- End About Section -->
@@ -220,17 +218,19 @@
           {{#each users}}
           <div class="col-md-3 col-sm-3 col-xs-12">
             <div class="single-team-member">
-              <div class="team-img">
+              <div class="team-img" style="height:auto;">
                 <a href="#">
                   <img src="{{this.photo}}" alt="">
                 </a>
                 <div class="team-social-icon text-center">
                   <ul>
                     <li>
-                      <i class="bi">Нанять</i>
+                      <a href="/events/hire/{{this._id}}/{{../event._id}}">
+                        <i class="bi">Нанять</i>
+                      </a>
                     </li>
                     <li>
-                      <a href="#">
+                      <a href="/users/profile/{{this._id}}">
                         <i class="bi">Портфолио</i>
                       </a>
                     </li>
@@ -245,36 +245,11 @@
           </div>
           {{/each}}
           <!-- End column -->
-          <div class="col-md-3 col-sm-3 col-xs-12">
-            <div class="single-team-member">
-              <div class="team-img">
-                <a href="#">
-                  <img src="/event/img/team/2.jpg" alt="">
-                </a>
-                <div class="team-social-icon text-center">
-                  <ul>
-                    <li>
-                      <a href="#">
-                        <i class="bi">Нанять</i>
-                      </a>
-                    </li>
-                    <li>
-                      <a href="#">
-                        <i class="bi">Портфолио</i>
-                      </a>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div class="team-content text-center">
-                <h4>Andrew Arnold</h4>
-                <p>Web Developer</p>
-              </div>
-            </div>
-          </div>
-          <!-- End column -->
+
         </div>
+        <!-- End column -->
       </div>
+    </div>
     </div><!-- End Team Section -->
 
     <!-- ======= Testimonials Section ======= -->
@@ -519,7 +494,7 @@
                 <div class="footer-contacts">
                   <p><span>Телефон:</span> +123 456 789</p>
                   <p><span>Email:</span> contact@example.com</p>
-                  <p><span>Рабочее время:</span> 9am-5pm</p>
+                  <p><span>Рабочее время:</span> 9:00-17:00</p>
                 </div>
               </div>
             </div>
