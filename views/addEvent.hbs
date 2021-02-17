@@ -33,6 +33,7 @@
     <div class="row">
       <div class="col-4"></div>
       <div class="col-4">
+        
         <h1 class="white">Создание события</h1>
         {{#if event}}
         <form method="POST" action='/events/{{event._id}}?_method=PUT'> 
@@ -95,7 +96,9 @@
           </div>
         </form>
       </div>
-      <div class="col-4"></div>
+      <div class="col-4">
+        <div class="home" style="text-align: end; padding:20px;"><a href="/users/profile">❌</a></div>
+      </div>
     </div>
   </div>
 
