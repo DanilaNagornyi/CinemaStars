@@ -10,7 +10,6 @@ const MongoStore = require('connect-mongo')(session);
 const hbs = require('hbs');
 require('dotenv').config();
 
-
 // создаем дополнительное условие в hbs которое
 // позволяем в создать свой if и сравнивать между собой значения
 hbs.registerHelper('if_eq', function (a, b, opts) {
