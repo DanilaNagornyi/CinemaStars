@@ -1,3 +1,4 @@
+
 # Cinema Stars
 
 <a href="https://cinemastar.herokuapp.com/">
@@ -20,7 +21,7 @@
 <br/>
 <br/>
 
-тут гиф
+![cinema-1Gif (2)](https://user-images.githubusercontent.com/64028251/115703085-5bff7680-a372-11eb-857a-9b64050d6e1f.gif)
 
 <br/>
 <br/>
