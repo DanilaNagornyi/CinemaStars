@@ -92,6 +92,13 @@ npm start
 
 ## Команда проекта 🥷
 
+<a href="https://github.com/tingol88">
+  <div>
+   <img align="left" alt="Alexander Blinkov" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
+   <h3><a href="https://github.com/tingol88">Alexander Blinkov</a></h3>
+  </div>
+</a>
+
 <a href="https://github.com/DanilaNagornyi">
   <div>
    <img align="left" alt="Danila Nagornyi" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
@@ -99,26 +106,21 @@ npm start
   </div>
 </a>
 
-<a href="https://github.com/kotals">
+<a href="https://github.com/mediaiana">
   <div>
-   <img align="left" alt="Ulitkau" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
-   <h3><a href="https://github.com/kotals">Alexey Serebrykov</a></h3>
+   <img align="left" alt="mediaiana" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
+   <h3><a href="https://github.com/mediaiana">Aiana Mederbek</a></h3>
   </div>
 </a>
 
-<a href="https://github.com/IvanPaponin">
+<a href="https://github.com/IlyaBondarenk">
   <div>
-   <img align="left" alt="Gamz" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
-   <h3><a href="https://github.com/IvanPaponin">Ivan Paponin</a></h3>
+   <img align="left" alt="Ilya Bondarenko" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
+   <h3><a href="https://github.com/IlyaBondarenk">Ilya Bondarenko</a></h3>
   </div>
 </a>
 
-<a href="https://github.com/AleksLeb">
-  <div>
-   <img align="left" alt="Alexandr Batrakov" width="22px" src="https://raw.githubusercontent.com/peterthehan/peterthehan/master/assets/github.svg" />
-   <h3><a href="https://github.com/AleksLeb">Aleksander Lebedev</a></h3>
-  </div>
-</a>
+
 
 
 
