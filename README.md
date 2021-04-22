@@ -15,6 +15,7 @@
 СОЗДАЙТЕ СОБЫТИЕ
 Вы можете создать проекты, как реклама, кроткометражный или полнометражный фильм на любой жанр
 <br/>
+<br/>
 ВЫБЕРИТЕ САМЫХ ЛУЧШИХ ПРОФЕССИОНАЛОВ
 Вы можете посмотреть последние проекты, фото и видео работ, социальные сети людей. С помощью фильтров Вы можете за несколько минут найти нужных Вам людей
 
@@ -26,23 +27,24 @@
 <br/>
 <br/>
 
-На главной странице нашего приложения есть информация о проекте и календарь предстоящих событий. Выбрав событие вы можете провалиться в него и посмотреть детали мероприятия.
-
-<br/>
-<br/>
-
-тут гиф
+В личном кабинете есть информация о вас, где отображаются ваши съёмки и события в которых вы принимате участия.
 
 
 <br/>
 <br/>
 
-В событии можно подтвердить участие, предложить место для вечеринки и проголосовать за место в котором пройдёт вечер. В личном кабинете вы увидите события на которые идёте и мероприятия которые вы создали.
+<img width="1680" alt="Снимок экрана 2021-04-22 в 13 57 31" src="https://user-images.githubusercontent.com/64028251/115703394-c0223a80-a372-11eb-9fc4-80f4c53b632e.png">
+
 
 <br/>
 <br/>
 
-имейдж тут
+В личном кабинете есть возможность добавить событие и пригласить в него команду исполнителей.
+
+<br/>
+<br/>
+
+![cinema-2Gif](https://user-images.githubusercontent.com/64028251/115704344-ee544a00-a373-11eb-9a14-1c720eebc1d8.gif)
 
 <br/>
 <br/>
@@ -80,7 +82,7 @@ npm start
   <img alt="Nodejs" src="https://img.shields.io/badge/-Nodejs-43853d?style=flat-square&logo=Node.js&logoColor=white" />
   <img alt="Bootstrap" src="https://img.shields.io/badge/-Bootstrap-430098?style=flat-square&logo=bootstrap&logoColor=white" />
   <img alt="Express" src="https://img.shields.io/badge/-ExpressJs-F7B93E?style=flat-square&logo=express&logoColor=white" />
-  <img alt="Handlebars" src="https://img.shields.io/badge/-Handlebars-8B4513?style=flat-square&logo=handlebars&logoColor=white" />
+  <img alt="Handlebars" src="https://img.shields.io/badge/-Handlebars-8B4513?style=flat-square&logo=hbs&logoColor=white" />
   
   
   
